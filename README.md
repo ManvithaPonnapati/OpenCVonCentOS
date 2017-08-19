@@ -33,3 +33,18 @@ pkgconfig
 cmake 
 tbb-devel - Intel’s Threading Building Blocks - make sure to enable this when you do the CMake.
 eigen3-devel - NUMERICAL optimizations woooo!
+
+# OpenCV - 3.3 is out
+git clone https://github.com/Itseez/opencv_contrib.git
+git clone https://github.com/opencv/opencv.git
+
+create a build directory inside opencv folder 
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
+    -D INSTALL_C_EXAMPLES=OFF \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D BUILD_EXAMPLES=ON \
+    -D BUILD_OPENCV_PYTHON2=ON ..
+
+compile and isntall : make (this will take a while) , make install and ldconfig
